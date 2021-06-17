@@ -1,0 +1,46 @@
+.container {
+    display: grid;
+}
+
+.title,
+.subtitle {
+    text-align: center;
+}
+
+.playlist {
+    text-align: center;
+    width: 300px;
+}
+
+.grid1 {
+    grid-column-start: 1;
+  grid-column-end: 2;
+  
+}
+
+.grid2 {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: aqua;
+}
+
+.cover-art {
+    height: 100px;
+}
+
+.result-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+}
+
+.search-result {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
