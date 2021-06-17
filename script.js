@@ -32,11 +32,13 @@ form.addEventListener('submit', function(event) {
         <button class='add'>Add</button>
       </div>
       `
-      let addButton = document.querySelector('.add')
-      addButton.addEventListener('click', event => {
-        playlist.append(event.target.parentNode)
-      })
-
+      
+      const addButton = document.querySelectorAll('.add')
+      addButton.forEach(button => 
+        button.addEventListener('click', event => {
+          playlist.append(event.target.parentNode)
+        })
+        )
     })
   )
   .catch(err => console.error(err))
