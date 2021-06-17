@@ -2,6 +2,7 @@
 const form = document.querySelector('#form') 
 const newDiv = document.createElement('div')
 const result = document.querySelector('.result')
+const playlist = document.querySelector('.playlist')
 
 result.append(newDiv)
 
@@ -19,7 +20,6 @@ form.addEventListener('submit', function(event) {
   .then(resp => resp.json())
   .then(data => data.tracks.hits.forEach(data => {
     
-    
     const {title, subtitle, images} = data.track
     
     newDiv.innerHTML += `
@@ -29,11 +29,16 @@ form.addEventListener('submit', function(event) {
         <div>
           <img src="${images.coverart}" alt="" class='cover-art'>
         </div>
-        <button>Add</button>
+        <button class='add'>Add</button>
       </div>
       `
-    console.log(data.track)
+      let addButton = document.querySelector('.add')
+      addButton.addEventListener('click', event => {
+        playlist.append(event.target.parentNode)
+      })
+
     })
   )
   .catch(err => console.error(err))
 })
+
