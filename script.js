@@ -3,7 +3,6 @@ const form = document.querySelector('#form')
 const newDiv = document.createElement('div')
 const result = document.querySelector('.result')
 const playlist = document.querySelector('.playlist')
-const newButton = document.createElement('button')
 
 result.append(newDiv)
 
@@ -38,6 +37,7 @@ form.addEventListener('submit', function(event) {
       addButton.forEach(button => 
         button.addEventListener('click', event => {
           let addToPlaylist = event.target.parentNode.cloneNode(true)
+          const newButton = document.createElement('button')
           // overwrite 
           addToPlaylist.children[3].remove()
           // create new button
