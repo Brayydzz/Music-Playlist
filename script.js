@@ -3,6 +3,7 @@ const form = document.querySelector('#form')
 const newDiv = document.createElement('div')
 const result = document.querySelector('.result')
 const playlist = document.querySelector('.playlist')
+const newButton = document.createElement('button')
 
 result.append(newDiv)
 
@@ -36,7 +37,22 @@ form.addEventListener('submit', function(event) {
       const addButton = document.querySelectorAll('.add')
       addButton.forEach(button => 
         button.addEventListener('click', event => {
-          playlist.append(event.target.parentNode)
+          let addToPlaylist = event.target.parentNode.cloneNode(true)
+          // overwrite 
+          addToPlaylist.children[3].remove()
+          // create new button
+          
+          // appendnew button
+          addToPlaylist.append(newButton)
+          addToPlaylist.children[3].innerText = 'Remove'
+          addToPlaylist.children[3].classList.add('remove')
+          playlist.append(addToPlaylist)
+
+          const removeButton = document.querySelectorAll('.remove')
+          removeButton.forEach(removeButton =>
+            removeButton.addEventListener('click', event =>{
+              event.target.parentNode.remove()
+            }))
         })
         )
     })
